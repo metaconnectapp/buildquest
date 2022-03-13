@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <button id="login" onclick="login()">Login with Metamask</button>
+
+    <form method="POST" action="{% url 'checkme' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>NFT Name</label>
+        <input name="nftname" type="text" />
+        <label>Symbol</label>
+        <input name="symbol" type="text" /><br>
+        <label>Description</label>
+        <input name="desc" type="text" />
+        <input type="hidden" name="address" id="js_data_input">
+        <input type="hidden" name="user" id="js_user_input">
+        <br>
+        <input required name="allimages" type="file">
+        <input type="submit" />
+    </form>
+
+    <script>
+        Moralis.initialize("z7dlyVtNRv6S9Iq4I8d2hXTQLsuquVUwRjmqH0mq"); // Application id from moralis.io
+        Moralis.serverURL = "https://uztcsdcyjsaf.usemoralis.com:2053/server"; //Server url from moralis.io
+        var user, wallet;
+        async function login() {
+            console.log("login clicked");
+            user = await Moralis.Web3.authenticate();
+            if (user) {
+                console.log(user);
+                document.getElementById('js_user_input').value = user.id;
+                user.save();
+            }
+            Moralis.User.currentAsync().then(function (user) {
+                if (user.get('ethAddress')) {
+                    wallet = user.get('ethAddress');
+                    console.log(wallet);
+                    document.getElementById('login').innerText = wallet;
+                    document.getElementById('js_data_input').value = wallet;
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
