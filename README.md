@@ -13,8 +13,8 @@ Make sure you have `python` and `Django` installed, then run
 
 ### DB Sync:
 ```
-  python manage.py makemigrations metaconnect
-  python manage.py migrate metaconnect
+python manage.py makemigrations metaconnect
+python manage.py migrate metaconnect
 ```
 
 ### Run the django server
