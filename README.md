@@ -6,7 +6,7 @@ How to use run this repository in your local host.
 
 ### Clone this repo
 ```bash
-git clone https://github.com/metaconnectapp/buildquest/
+git clone https://github.com/metaconnectapp/buildquest.git
 ```
 
 Make sure you have `python` and `Django` installed, then run
