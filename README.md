@@ -6,13 +6,7 @@ How to use run this repository in your local host.
 
 ### Clone this repo
 ```bash
-git clone https://github.com/buymekofi/Near-X-Encode 
-```
-
-### Deploy the smart contract
-```bash
-cd Near-X-Encode && cd buymekofi_contract 
-npm run dev
+git clone https://github.com/metaconnectapp/buildquest/
 ```
 
 ### For DB Sync:
