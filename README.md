@@ -8,16 +8,15 @@ How to use run this repository in your local host.
 ```bash
 git clone https://github.com/metaconnectapp/buildquest/
 ```
+Make sure you have `python` and `Django` install then run
 
-### For DB Sync:
+### DB Sync:
 ```
   python manage.py makemigrations metaconnect
   python manage.py migrate metaconnect
-  
 ```
 
 ### Run the django server
-Make sure you have `python` and `Django` install then run
 ```bash
 cd ..
 python manage.py runserver
